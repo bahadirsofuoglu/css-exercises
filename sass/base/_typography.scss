@@ -1,0 +1,47 @@
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+ /*  font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+}
+/*
+logonun üstüne geldiğinde animasyon olusturmak için
+.logo:hover{
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+} */
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden; /* animasyonlarda bazen topa sıcrama durumu oluyor bir çıtır. Bu onu cözüyor */
+
+  margin-bottom: 60px;
+
+  &--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px; /* harfler arası boşluk */
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* default özellik gibi çeşitleri var mozilladan bakabilirsin */
+
+    /* animation-iteration-count: 3;  x kere yaptır 
+    animation-delay:3s;  başlangıçtan animation başlangıcına kadar beklenecek süre */
+  }
+  &--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 17.4px; /* header part 2 dk 11 */
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+}

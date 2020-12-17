@@ -1,37 +1,56 @@
 @charset "UTF-8";
-* {
+/* transform: rotate(180deg) döndürme işlemleri yapmak için */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+    /* sadece -x yönünde 100px yapılan hareket */ }
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+    /* sadece -x yönünde 100px yapılan hareket */ }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    /* sadece -x yönünde 100px yapılan hareket */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
   box-sizing: border-box; }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /*  font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* 0 0 bir koordinat noktası belirlendi (resme göre en sol üst) ordan itibaren kordinatlar boyu resmi kesti */ }
-  .header__logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px; }
-  .header__logo {
-    height: 35px; }
-  .header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+  padding: 3rem; }
 
 /*
 logonun üstüne geldiğinde animasyon olusturmak için
@@ -68,37 +87,26 @@ logonun üstüne geldiğinde animasyon olusturmak için
     animation-duration: 1s;
     animation-timing-function: ease-out; }
 
-/* transform: rotate(180deg) döndürme işlemleri yapmak için */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-    /* sadece -x yönünde 100px yapılan hareket */ }
-  80% {
-    transform: translateX(10px); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-    /* sadece -x yönünde 100px yapılan hareket */ }
-  80% {
-    transform: translateX(-10px); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-    /* sadece -x yönünde 100px yapılan hareket */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* 0 0 bir koordinat noktası belirlendi (resme göre en sol üst) ordan itibaren kordinatlar boyu resmi kesti */ }
+  .header__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px; }
+  .header__logo {
+    height: 35px; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;

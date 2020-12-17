@@ -1,0 +1,41 @@
+/* transform: rotate(180deg) döndürme işlemleri yapmak için */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /* sadece -x yönünde 100px yapılan hareket */
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /* sadece -x yönünde 100px yapılan hareket */
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* sadece -x yönünde 100px yapılan hareket */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
