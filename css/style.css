@@ -28,14 +28,18 @@ body {
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* 0 0 bir koordinat noktası belirlendi (resme göre en sol üst) ordan itibaren kordinatlar boyu resmi kesti */ }
-
-.logo-box {
-  position: absolute;
-  top: 40px;
-  left: 40px; }
-
-.logo {
-  height: 35px; }
+  .header__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px; }
+  .header__logo {
+    height: 35px; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 /*
 logonun üstüne geldiğinde animasyon olusturmak için
@@ -44,42 +48,33 @@ logonun üstüne geldiğinde animasyon olusturmak için
   animation-duration: 1s;
   animation-timing-function: ease-out;
 } */
-.text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
-
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
   /* animasyonlarda bazen topa sıcrama durumu oluyor bir çıtır. Bu onu cözüyor */
   margin-bottom: 60px; }
-
-.heading-primary-main {
-  display: block;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 35px;
-  /* harfler arası boşluk */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* default özellik gibi çeşitleri var mozilladan bakabilirsin */
-  /* animation-iteration-count: 3;  x kere yaptır 
-  animation-delay:3s;  başlangıçtan animation başlangıcına kadar beklenecek süre */ }
-
-.heading-primary-sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 17.4px;
-  /* header part 2 dk 11 */
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* harfler arası boşluk */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* default özellik gibi çeşitleri var mozilladan bakabilirsin */
+    /* animation-iteration-count: 3;  x kere yaptır 
+    animation-delay:3s;  başlangıçtan animation başlangıcına kadar beklenecek süre */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 17.4px;
+    /* header part 2 dk 11 */
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
 
 /* transform: rotate(180deg) döndürme işlemleri yapmak için */
 @keyframes moveInLeft {
@@ -113,8 +108,7 @@ logonun üstüne geldiğinde animasyon olusturmak için
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   /* alt çizgiyi kaldırdı */
@@ -127,14 +121,19 @@ logonun üstüne geldiğinde animasyon olusturmak için
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.5) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -148,13 +147,6 @@ logonun üstüne geldiğinde animasyon olusturmak için
   z-index: -1;
   transition: all 0.4s; }
 
-.btn-white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.5) scaleY(1.6);
-  opacity: 0; }
-
-.btn-animated {
-  animation: moveInBottom .5s ease-out .75s;
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; }
